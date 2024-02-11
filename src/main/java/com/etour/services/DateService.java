@@ -8,6 +8,6 @@ import com.etour.entities.Date;
 public interface DateService 
 {
 	List<Date> getDate();
-	Optional<Date> getDate(int id);
+	Optional<Date> getDateById(int id);
 
 }

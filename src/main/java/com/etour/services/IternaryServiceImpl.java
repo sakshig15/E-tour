@@ -1,25 +1,30 @@
 package com.etour.services;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.etour.entities.Iternary;
 import com.etour.repositories.IternaryRepository;
 
+@Service
 public class IternaryServiceImpl implements IternaryService
 {
 	@Autowired
-	IternaryRepository iternaryrepository ;
+	private IternaryRepository iternaryrepository ;
 	
 	@Override
 	public List<Iternary> getIternary() {
-		// TODO Auto-generated method stub
+		
 		return iternaryrepository.findAll();
 	}
 
 	@Override
-	public List<Iternary> getIternaryById(int packid) {
-		// TODO Auto-generated method stub
-		return iternaryrepository.findByPackage_id(packid);
+	public Optional<Iternary> getIternaryById(int packid) {
+		
+		return iternaryrepository.findById(packid);
 	}
 
 }

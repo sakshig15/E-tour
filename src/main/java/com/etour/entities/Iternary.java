@@ -15,13 +15,9 @@ public class Iternary
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="iternery_id")
 	private int iternery_id;
- 
-	private String iternery_day;
-
+    private String iternery_day;
 	private String iternery_info;
-  
 	private String iternery_imgpath;
-  
 	private int package_id;
 
 	

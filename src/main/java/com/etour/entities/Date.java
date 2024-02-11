@@ -12,14 +12,11 @@ public class Date
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int departure_id;
-	
 	private String departure_date;
-	
-	private int departure_end_date;
-	
+	private String departure_end_date;
 	private int package_id;
-	
 	private int departure_no_of_days;
+	
 
 	public int getDeparture_id() {
 		return departure_id;
@@ -37,11 +34,11 @@ public class Date
 		this.departure_date = departure_date;
 	}
 
-	public int getDeparture_end_date() {
+	public String getDeparture_end_date() {
 		return departure_end_date;
 	}
 
-	public void setDeparture_end_date(int departure_end_date) {
+	public void setDeparture_end_date(String departure_end_date) {
 		this.departure_end_date = departure_end_date;
 	}
 
@@ -65,7 +62,7 @@ public class Date
 		super();
 	}
 	
-	public Date(int departure_id, String departure_date, int departure_end_date, int package_id,
+	public Date(int departure_id, String departure_date, String departure_end_date, int package_id,
 			int departure_no_of_days) {
 		super();
 		this.departure_id = departure_id;
