@@ -17,7 +17,10 @@ public class Packages {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int package_id;
 	private String package_name;
+	private String package_details;
 	private String package_image_path;
+	
+	
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
@@ -39,6 +42,42 @@ public class Packages {
 	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
 	private Set<Passenger> passenger;
 	
+	public String getPackage_details() {
+		return package_details;
+	}
+	public void setPackage_details(String package_details) {
+		this.package_details = package_details;
+	}
+	public Set<Date> getDate() {
+		return date;
+	}
+	public void setDate(Set<Date> date) {
+		this.date = date;
+	}
+	public Set<Cost_master> getCost_master() {
+		return cost_master;
+	}
+	public void setCost_master(Set<Cost_master> cost_master) {
+		this.cost_master = cost_master;
+	}
+	public Set<Iternary> getIternary() {
+		return iternary;
+	}
+	public void setIternary(Set<Iternary> iternary) {
+		this.iternary = iternary;
+	}
+	public Set<Booking> getBooking() {
+		return booking;
+	}
+	public void setBooking(Set<Booking> booking) {
+		this.booking = booking;
+	}
+	public Set<Passenger> getPassenger() {
+		return passenger;
+	}
+	public void setPassenger(Set<Passenger> passenger) {
+		this.passenger = passenger;
+	}
 	
 	public int getPackage_id() {
 		return package_id;

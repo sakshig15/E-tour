@@ -28,8 +28,6 @@ public class Customers {
 	@Column(name="customer_lastname")
 	private String lastname;
 	
-	@Column(name="customer_details")
-	private String cust_details;
 	
 	@Column(name="dateofbirth")
 	private String dateofbirth;
@@ -78,14 +76,7 @@ public class Customers {
 		this.lastname = lastname;
 	}
 
-	public String getCust_details() {
-		return cust_details;
-	}
-
-	public void setCust_details(String cust_details) {
-		this.cust_details = cust_details;
-	}
-
+	
 	public String getDateofbirth() {
 		return dateofbirth;
 	}
@@ -132,7 +123,6 @@ public class Customers {
 		this.cust_id = cust_id;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.cust_details = cust_details;
 		this.dateofbirth = dateofbirth;
 		this.email = email;
 		this.gender = gender;
