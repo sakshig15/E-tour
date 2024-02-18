@@ -1,7 +1,4 @@
 package com.etour.entities;
-
-
-
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -16,7 +13,7 @@ public class Booking {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int booking_id;
+	private Integer booking_id;
 	private String  booking_date;
 	private int customer_id;
 	private int flag;
@@ -24,16 +21,18 @@ public class Booking {
 	private double  tour_amount;
 	private double total_amount;
 	private double taxes;
+	private String recipient;  
+    private String msgBody;
 	
 	@OneToMany
 	@JoinColumn(name = "booking_id",referencedColumnName = "booking_id")
 	private Set<Passenger> passenger;
 
-	public int getBooking_id() {
+	public Integer getBooking_id() {
 		return booking_id;
 	}
 
-	public void setBooking_id(int booking_id) {
+	public void setBooking_id(Integer booking_id) {
 		this.booking_id = booking_id;
 	}
 
@@ -117,6 +116,22 @@ public class Booking {
 	
 	public Booking() {
 		super();
+	}
+
+	public String getRecipient() {
+		return recipient;
+	}
+
+	public void setRecipient(String recipient) {
+		this.recipient = recipient;
+	}
+
+	public String getMsgBody() {
+		return msgBody;
+	}
+
+	public void setMsgBody(String msgBody) {
+		this.msgBody = msgBody;
 	}
 }	
 

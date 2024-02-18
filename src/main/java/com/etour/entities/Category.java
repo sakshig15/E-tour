@@ -2,7 +2,10 @@ package com.etour.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 public class Category {
 	@Id
@@ -19,9 +24,24 @@ public class Category {
 	private String category_image_path;
 	private String category_info;
 	
+	@Column(nullable = true)
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name = "category_id" , referencedColumnName = "category_id")
 	private Set<SubCategory> subcategory;
+	
+	@Column(nullable = true)
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name = "category_id" , referencedColumnName = "category_id")
+	private Set<Packages> packages;
+
+	
+	public Set<Packages> getPackages() {
+		return packages;
+	}
+
+	public void setPackages(Set<Packages> packages) {
+		this.packages = packages;
+	}
 
 	public int getCategory_id() {
 		return category_id;

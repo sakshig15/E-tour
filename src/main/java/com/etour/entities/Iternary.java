@@ -1,5 +1,8 @@
 package com.etour.entities;
 
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,39 +12,18 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Iternary 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="iternery_id")
 	private int iternery_id;
     private String iternery_day;
 	private String iternery_info;
 	private String iternery_imgpath;
+	@Column(nullable = true)
 	private int package_id;
-
 	
-	
-	@Override
-	public String toString() {
-		return "Iternary [iternery_id=" + iternery_id + ", iternery_day=" + iternery_day + ", iternery_info="
-				+ iternery_info + ", iternery_imgpath=" + iternery_imgpath + ", package_id=" + package_id + "]";
-	}
-
-	public Iternary() {
-		super();
-	}
-
-	public Iternary(int iternery_id, String iternery_day, String iternery_info, String iternery_imgpath,
-			int package_id) {
-		super();
-		this.iternery_id = iternery_id;
-		this.iternery_day = iternery_day;
-		this.iternery_info = iternery_info;
-		this.iternery_imgpath = iternery_imgpath;
-		this.package_id = package_id;
-	}
-
 	public int getIternery_id() {
 		return iternery_id;
 	}
@@ -82,6 +64,26 @@ public class Iternary
 		this.package_id = package_id;
 	}
 
+	public Iternary(int iternery_id, String iternery_day, String iternery_info, String iternery_imgpath,
+			int package_id) {
+		super();
+		this.iternery_id = iternery_id;
+		this.iternery_day = iternery_day;
+		this.iternery_info = iternery_info;
+		this.iternery_imgpath = iternery_imgpath;
+		this.package_id = package_id;
+	}
+
+	public Iternary() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Iternary [iternery_id=" + iternery_id + ", iternery_day=" + iternery_day + ", iternery_info="
+				+ iternery_info + ", iternery_imgpath=" + iternery_imgpath + ", package_id=" + package_id + "]";
+	}
+	
 	
 	
 }

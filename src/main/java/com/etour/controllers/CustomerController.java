@@ -28,6 +28,14 @@ public class CustomerController {
 	{
 		return customerservice.getcustomers();
 	}
+	/*
+	 * @GetMapping("/api/customer/bookingid/") Optional<Customers>
+	 * getCustomerbyBookingId(int id) {
+	 * 
+	 * return customerservice.getCustomerbyBookingId(id); }
+	 */
+
+	
 	
 	@GetMapping("/api/customerbyid/{id}")
 	public Optional<Customers> getcustomerbyid(@PathVariable int id)
@@ -35,12 +43,6 @@ public class CustomerController {
 		return customerservice.getcustomerbyid(id);
 	}
 	
-//	@GetMapping("/api/fetchcustomerpass/{id}")
-//	public Optional<Customers> getcustomerbypass(@PathVariable int id)
-//	{
-//		return customerservice.getCustomerbypass(id);
-//	}
-//	
 	@PostMapping("/api/CustomerController")
 	public void createCustomer(Customers customers)
 	{
@@ -53,30 +55,6 @@ public class CustomerController {
 		customerservice.deleteCustomer(id);
 	}
 	
-//	@PutMapping("/api/UpdateCustomerbyPass/{id}")
-//	void updateCustomerPass(@PathVariable Integer Id,@RequestBody Customers customer)
-//	{
-//		customerservice.putcustomerpass(customer.getPassword(), Id);
-//	}
-//	
-//	@PutMapping("/api/CustomerEmail/{id}")
-//	void putCustomersEmail(@PathVariable Integer Id,@RequestBody Customers customer)
-//	{
-//		customerservice.putcustomermail(customer.getEmail(), Id);
-//	}
-//	
-//	@PutMapping("/api/CustomerFirstName/{id}")
-//	void putCustomersFirstName(@PathVariable Integer Id,@RequestBody Customers customer)
-//	{
-//		customerservice.putcustomerFirstName(customer.getFirstname(), Id);
-//	}
-////	@GetMapping("/api/GetCustomerMobile/{Id}")
-////	public Optional <Customers> getCustomerMobile(@PathVariable int Id) {
-////		return customerservice.getCustomerbymobile(Id);
-////	}
-//	@GetMapping("/api/CustomerLoginValidation/{mobile}/{password}")
-//    public Optional <Customers>  getCustomerbymobile(@PathVariable String mobile,@PathVariable String password,@RequestBody Customers customer){
-//		return customerservice.getCustomerbymobile(mobile, password);
-//    }
+
 
 }

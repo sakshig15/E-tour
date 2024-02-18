@@ -2,7 +2,10 @@ package com.etour.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 public class Packages {
 	
@@ -17,36 +22,54 @@ public class Packages {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int package_id;
 	private String package_name;
-	private String package_details;
 	private String package_image_path;
+	private String package_info;
+	@Column(nullable = true)
+	private Integer subcategory_id;
+	@Column(nullable = true)
+	private int category_id;
 	
-	
-	
+	public int getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id; 
+	}
+	public String getPackage_info() {
+		return package_info;
+	}
+	public void setPackage_info(String package_info) {
+		this.package_info = package_info;
+	}
+	@Column(nullable = true)
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
+	@JoinColumn(name = "package_id",referencedColumnName = "package_id")
 	private Set<Date> date;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
-	private Set<Cost_master> cost_master;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
+	@JoinColumn(name = "package_id",referencedColumnName = "package_id")
 	private Set<Iternary> iternary;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
-	private Set<Booking> booking;
+	@JoinColumn(name = "package_id",referencedColumnName = "package_id")
+	private Set<Cost> costs;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="package_id" ,referencedColumnName = "package_id")
+	@JoinColumn(name = "package_id",referencedColumnName = "package_id")
+	private Set<Booking> bookings;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "package_id",referencedColumnName = "package_id")
 	private Set<Passenger> passenger;
 	
-	public String getPackage_details() {
-		return package_details;
+	
+	
+	
+	public Set<Iternary> getIternary() {
+		return iternary;
 	}
-	public void setPackage_details(String package_details) {
-		this.package_details = package_details;
+	public void setIternary(Set<Iternary> iternary) {
+		this.iternary = iternary;
 	}
 	public Set<Date> getDate() {
 		return date;
@@ -54,31 +77,12 @@ public class Packages {
 	public void setDate(Set<Date> date) {
 		this.date = date;
 	}
-	public Set<Cost_master> getCost_master() {
-		return cost_master;
+	public Integer getSubcategory_id() {
+		return subcategory_id;
 	}
-	public void setCost_master(Set<Cost_master> cost_master) {
-		this.cost_master = cost_master;
+	public void setSubcategory_id(int subcategory_id) {
+		this.subcategory_id = subcategory_id;
 	}
-	public Set<Iternary> getIternary() {
-		return iternary;
-	}
-	public void setIternary(Set<Iternary> iternary) {
-		this.iternary = iternary;
-	}
-	public Set<Booking> getBooking() {
-		return booking;
-	}
-	public void setBooking(Set<Booking> booking) {
-		this.booking = booking;
-	}
-	public Set<Passenger> getPassenger() {
-		return passenger;
-	}
-	public void setPassenger(Set<Passenger> passenger) {
-		this.passenger = passenger;
-	}
-	
 	public int getPackage_id() {
 		return package_id;
 	}
@@ -97,11 +101,18 @@ public class Packages {
 	public void setPackage_image_path(String package_image_path) {
 		this.package_image_path = package_image_path;
 	}
-	public Packages(int package_id, String package_name, String package_image_path) {
+	
+	
+	public Packages(int package_id, String package_name, String package_image_path, String package_info,
+			int subcategory_id, Set<Date> date, Set<Iternary> iternary) {
 		super();
 		this.package_id = package_id;
 		this.package_name = package_name;
 		this.package_image_path = package_image_path;
+		this.package_info = package_info;
+		this.subcategory_id = subcategory_id;
+		this.date = date;
+		this.iternary = iternary;
 	}
 	public Packages() {
 		super();
@@ -109,6 +120,12 @@ public class Packages {
 	@Override
 	public String toString() {
 		return "Packages [package_id=" + package_id + ", package_name=" + package_name + ", package_image_path="
-				+ package_image_path + "]";
-	}	
+				+ package_image_path + ", package_info=" + package_info + ", subcategory_id=" + subcategory_id
+				+ ", date=" + date + ", iternary=" + iternary + "]";
+	}
+	
+	
+	
+	
+	
 }

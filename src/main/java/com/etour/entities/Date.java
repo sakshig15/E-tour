@@ -29,7 +29,7 @@ public class Date
 	public String getDeparture_date() {
 		return departure_date;
 	}
-
+	
 	public void setDeparture_date(String departure_date) {
 		this.departure_date = departure_date;
 	}
@@ -71,7 +71,6 @@ public class Date
 		this.package_id = package_id;
 		this.departure_no_of_days = departure_no_of_days;
 	}
-	
 	
 	@Override
 	public String toString() {

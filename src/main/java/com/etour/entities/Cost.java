@@ -6,17 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cost_master {
+public class Cost {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cost_id;
-	
 	private double child_with_bed;
 	private double cost;
 	private double extra_person_cost;
-	private int packageid;
+	private int package_id;
 	private double single_person_cost;
-	private int sub_sector_id;
+	private int subcategory_id;
 	private String valid_from;
 	private String valid_to;
 	
@@ -44,11 +43,11 @@ public class Cost_master {
 	public void setExtra_person_cost(double extra_person_cost) {
 		this.extra_person_cost = extra_person_cost;
 	}
-	public int getPackageid() {
-		return packageid;
+	public int getPackage_id() {
+		return package_id;
 	}
-	public void setPackageid(int packageid) {
-		this.packageid = packageid;
+	public void setPackage_id(int package_id) {
+		this.package_id = package_id;
 	}
 	public double getSingle_person_cost() {
 		return single_person_cost;
@@ -57,10 +56,10 @@ public class Cost_master {
 		this.single_person_cost = single_person_cost;
 	}
 	public int getSub_sector_id() {
-		return sub_sector_id;
+		return subcategory_id;
 	}
-	public void setSub_sector_id(int sub_sector_id) {
-		this.sub_sector_id = sub_sector_id;
+	public void setSub_sector_id(int subcategory_id) {
+		this.subcategory_id = subcategory_id;
 	}
 	public String getValid_from() {
 		return valid_from;
@@ -74,28 +73,28 @@ public class Cost_master {
 	public void setValid_to(String valid_to) {
 		this.valid_to = valid_to;
 	}
-	public Cost_master() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Cost_master(int cost_id, double child_with_bed, double cost, double extra_person_cost, int packageid,
+	public Cost(int cost_id, double child_with_bed, double cost, double extra_person_cost, int package_id,
 			double single_person_cost, int sub_sector_id, String valid_from, String valid_to) {
 		super();
 		this.cost_id = cost_id;
 		this.child_with_bed = child_with_bed;
 		this.cost = cost;
 		this.extra_person_cost = extra_person_cost;
-		this.packageid = packageid;
+		this.package_id = package_id;
 		this.single_person_cost = single_person_cost;
-		this.sub_sector_id = sub_sector_id;
+		this.subcategory_id = sub_sector_id;
 		this.valid_from = valid_from;
 		this.valid_to = valid_to;
 	}
 	@Override
 	public String toString() {
-		return "Cost_master [cost_id=" + cost_id + ", child_with_bed=" + child_with_bed + ", cost=" + cost
-				+ ", extra_person_cost=" + extra_person_cost + ", packageid=" + packageid + ", single_person_cost="
-				+ single_person_cost + ", sub_sector_id=" + sub_sector_id + ", valid_from=" + valid_from + ", valid_to="
+		return "Cost [cost_id=" + cost_id + ", child_with_bed=" + child_with_bed + ", cost=" + cost
+				+ ", extra_person_cost=" + extra_person_cost + ", package_id=" + package_id + ", single_person_cost="
+				+ single_person_cost + ", sub_sector_id=" + subcategory_id + ", valid_from=" + valid_from + ", valid_to="
 				+ valid_to + "]";
 	}
+	
+	
+	
+	
 }

@@ -4,45 +4,31 @@ package com.etour.entities;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Customers")
 public class Customers {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="customer_id")
-	private int cust_id;
-	
-	@Column(name="customer_firstname")
+	private int customer_id;
 	private String firstname;
-	
-	@Column(name="customer_lastname")
 	private String lastname;
-	
-	
-	@Column(name="dateofbirth")
 	private String dateofbirth;
-	
-	@Column(name="email")
 	private String email;
-	
-	@Column(name="gender")
 	private String gender;
-	
-	@Column(name="mobile")
 	private String mobile;
-	
-	@Column(name="password")
 	private String password;
+	private String username;
+	private String address;
+	private String city;
+	private String state;
+	private String pincode;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id" , referencedColumnName = "customer_id")
@@ -51,13 +37,13 @@ public class Customers {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id" , referencedColumnName = "customer_id")
 	private Set<Passenger>passenger;
-	
-	public int getCust_id() {
-		return cust_id;
+
+	public int getCustomer_id() {
+		return customer_id;
 	}
 
-	public void setCust_id(int cust_id) {
-		this.cust_id = cust_id;
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
 	}
 
 	public String getFirstname() {
@@ -76,7 +62,6 @@ public class Customers {
 		this.lastname = lastname;
 	}
 
-	
 	public String getDateofbirth() {
 		return dateofbirth;
 	}
@@ -116,11 +101,68 @@ public class Customers {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public Customers(int cust_id, String firstname, String lastname, String cust_details, String dateofbirth,
-			String email, String gender, String mobile, String password) {
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+
+	public Set<Booking> getBooking() {
+		return booking;
+	}
+
+	public void setBooking(Set<Booking> booking) {
+		this.booking = booking;
+	}
+
+	public Set<Passenger> getPassenger() {
+		return passenger;
+	}
+
+	public void setPassenger(Set<Passenger> passenger) {
+		this.passenger = passenger;
+	}
+
+	public Customers(int customer_id, String firstname, String lastname, String dateofbirth, String email,
+			String gender, String mobile, String password, String username, String address, String city, String state,
+			String pincode, Set<Booking> booking, Set<Passenger> passenger) {
 		super();
-		this.cust_id = cust_id;
+		this.customer_id = customer_id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.dateofbirth = dateofbirth;
@@ -128,16 +170,25 @@ public class Customers {
 		this.gender = gender;
 		this.mobile = mobile;
 		this.password = password;
+		this.username = username;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+		this.booking = booking;
+		this.passenger = passenger;
 	}
-
+	
 	public Customers() {
 		super();
-		
 	}
 
-
-		
-	
-	
-
+	@Override
+	public String toString() {
+		return "Customers [customer_id=" + customer_id + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", dateofbirth=" + dateofbirth + ", email=" + email + ", gender=" + gender + ", mobile=" + mobile
+				+ ", password=" + password + ", username=" + username + ", address=" + address + ", city=" + city
+				+ ", state=" + state + ", pincode=" + pincode + ", booking=" + booking + ", passenger=" + passenger
+				+ "]";
+	}
 }

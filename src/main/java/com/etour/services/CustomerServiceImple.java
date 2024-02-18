@@ -40,6 +40,14 @@ public class CustomerServiceImple implements CustomerService {
 		return ls;
 	}
 
+	@Override
+	public Optional<Customers> getCustomerbyBookingId() {
+		
+		return customersrepository.getCustomerbyBookingId();
+		
+	}
+
+	
 //	@Override
 //	public Optional<Customers> getCustomerbypass(String pass) {
 //		// TODO Auto-generated method stub
