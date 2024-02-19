@@ -17,6 +17,18 @@ public interface CustomersRepository extends JpaRepository<Customers,Integer>//C
 //Integer is the type of the primary key of the entity (Customers). In this case, it indicates that the primary key is of type Integer.
 {
 	
-	@Query(value ="select email,firstname,lastname,total_amount from Booking join Customers on Customers.customer_id=Booking.customer_id order by Booking.booking_id desc limit 1",nativeQuery=true)
-	public Optional<Customers> getCustomerbyBookingId();
+	/*
+	 * @Query(value
+	 * ="select email,firstname,lastname,total_amount from Booking join Customers on Customers.customer_id=Booking.customer_id order by Booking.booking_id desc limit 1"
+	 * ,nativeQuery=true) public Optional<Customers> getCustomerbyBookingId();
+	 */
+	
+	/*   default boolean findUser(Customers myuser)
+	   {
+		System.out.println("inside findUser method");
+		String uname=myuser.getUsername();
+		String pwd=myuser.getPassword();
+		return uname.equalsIgnoreCase("scott") && pwd.equals("tiger");
+		
+	   }*/
 }
